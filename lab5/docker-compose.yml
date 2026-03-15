@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  web-server:
+    image: nginx:alpine
+    ports:
+      - "8081:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+
+  database:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: my_database
